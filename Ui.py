@@ -11,13 +11,16 @@ class Gui(Ui):
         pass
 
     def run(self):
-        print("Running the g!")
+        print("Running the gui!")
         pass
 
 class Terminal(Ui):
     def __init__(self):
-        pass
+        self.__game = Game()
 
     def run(self):
-        print("Running the terminal!")
-        pass
+        while not self.__game.winner:
+            print(self.__game)
+            row = int(input("Enter row"))
+            col = int(input("Enter col"))
+            self.__game.play(row,col)
