@@ -1,3 +1,5 @@
+class GameError(Exception):
+    pass
 
 class Game:
 
@@ -23,6 +25,8 @@ class Game:
     def play(self,row,col):
         row -= 1
         col -= 1
+        if self._board[row][col] != Game._EMPTY:
+            raise GameError
         self._board[row][col] = self._player
         self._player = Game.P2 if self._player is Game.P1 else Game.P1
     
