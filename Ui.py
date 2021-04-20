@@ -37,7 +37,10 @@ class Terminal(Ui):
                     continue
                 else:
                     print("Row and column must be between 1 and 3")
-
-        print(self._game)
+                    
+        print(self._game)   
         w = self._game.winner
-        print(f"The winner was {w}")
+        if self._game.winner == Game.DRAW:
+            print("Game was drawn")
+        else:
+            print(f"The winner was {w}")
